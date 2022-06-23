@@ -1,0 +1,17 @@
+.hero-banner {
+    position: relative;
+    height: 300px;
+    margin-bottom: 50px;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        right: 0;
+        width: 100vw;
+        transform: translateX(-50%);
+        overflow: hidden;
+        height: 300px;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,291 @@
+.header {
+    background-color: color-bg-primary;
+    width: 100%;
+    height: $header-height;
+    font-family: $header-font;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    background-color: $color-bg-primary;
+    z-index: 99;
+
+
+    @include tablet {
+        height: $header-tablet-height;
+        border-bottom: 1px solid #ddd;
+    }
+
+    @include mobile {
+        height: $header-mobile-height;
+        border-bottom: 1px solid #ddd;
+    }
+
+    &.shrink {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: $header-shrink-height;
+    }
+
+
+    .container {
+        height: 100%;
+        @include flex(center, flex-start);
+    }
+
+    &__logo {
+        height: 100%;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    &__menu {
+        flex-grow: 1;
+        height: 100%;
+        @include flex(center, space-between);
+
+        @include tablet {
+            justify-content: flex-end;
+        }
+
+        &__toggle {
+            display: none;
+
+            @include tablet {
+                display: block;
+                font-size: 2rem;
+                margin-right: 1.8rem;
+            }
+
+            @include mobile {
+                margin-right: .8rem;
+            }
+        }
+
+        &__item~&__item {
+            margin-left: 39px;
+        }
+
+        &__item {
+
+
+            &__sub {
+                position: absolute;
+                top: 100%;
+                border: 1px solid #ddd;
+                width: max-content;
+                display: none;
+                background-color: $color-bg-primary;
+                z-index: 99;
+
+                &__item {
+                    padding: 0 2rem 1.6rem;
+
+                    &__title {
+                        display: block;
+                        margin: 2rem 0;
+                    }
+
+                    &__link~&__link {
+                        margin-top: 1.6rem;
+                    }
+
+                    &__link {
+                        font-family: 'EB Garamond', serif;
+                        text-transform: capitalize;
+                        font-style: italic;
+                        font-size: 1.5rem;
+                        color: $color-text;
+                        width: 190px;
+
+                        &:hover a {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2) .header__menu__item__sub {
+                width: 100vw;
+                left: 0;
+                position: fixed;
+                right: 0;
+                top: 100px;
+                justify-content: center;
+
+                &__item {
+                    padding: 0 0rem 1.6rem;
+                }
+            }
+
+            &:hover &__sub {
+                display: flex;
+            }
+        }
+
+
+        &__left,
+        &__right {
+            @include flex(center, center);
+        }
+
+        &__left {
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            height: 100%;
+            margin-left: 3rem;
+
+            .header__menu__item {
+                position: relative;
+                height: 100%;
+                @include flex(center, center);
+
+                >a {
+                    position: relative;
+                    display: inline-block;
+                    height: 100%;
+                    @include flex(center, flex-start);
+                }
+
+                &.active {
+                    a::after {
+                        width: 100%;
+                        background-color: #333;
+                    }
+                }
+
+                >a::after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 0;
+                    height: 2px;
+                    transition: width .3s ease;
+                    top: 60%;
+                    left: 0;
+                }
+
+                &:hover>a::after {
+                    width: 100%;
+                    background-color: #333;
+                }
+            }
+
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &__right {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__menu-mobile {
+        display: none;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        background-color: $color-bg-primary;
+        padding: 1.6rem 3rem 3rem 3rem;
+        border-bottom: 1px solid #ddd;
+
+        &.active {
+            display: block;
+        }
+
+        &__item {
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            min-height: 3rem;
+            height: max-content;
+            @include flex(flex-start, center);
+            flex-direction: column;
+
+            &__title {
+                display: inline-block;
+                width: 100%;
+            }
+
+            &.active &__sub {
+                display: block;
+            }
+
+            &__sub {
+                margin-left: 2rem;
+                width: 100%;
+                display: none;
+
+                &__item {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    a {
+                        font-family: 'EB Garamond', serif;
+                        text-transform: capitalize;
+                        font-style: italic;
+                        font-size: 1.6rem;
+                    }
+
+                    &__title {
+                        margin-top: 1rem;
+                        height: 100%;
+                        font-weight: 600;
+                        color: $color-text;
+                        cursor: pointer;
+                    }
+
+                    &.active &__links {
+                        display: block;
+                    }
+
+                    &__links {
+                        display: none;
+                    }
+
+                    &__link {
+                        margin-left: 2rem;
+                        font-size: 1.4rem;
+                        color: $color-text;
+                        height: 3rem;
+                        line-height: 3rem;
+
+                        a {
+                            display: inline-block;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__cart {
+        position: relative;
+
+        &__quantity {
+            position: absolute;
+            background: #1d1d1d;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 50%;
+            right: -8px;
+            bottom: -4px;
+            width: 17px;
+            height: 17px;
+            @include flex(center, center);
+            border: 2px solid;
+        }
+    }
+}
+
+.shrink .container .header__menu__item:nth-child(2) .header__menu__item__sub {
+    top: $header-shrink-height;
+}

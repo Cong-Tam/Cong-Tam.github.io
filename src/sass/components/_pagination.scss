@@ -1,0 +1,69 @@
+.pagination{
+    display: flex;
+    list-style-type: none;
+    margin: 0 auto;
+    width: max-content;
+    font-size: 1.8rem;
+    font-family: 'EB Garamond', serif;
+    color: #8b8b8b;
+    font-style: italic;
+
+    &.disable{
+        display: none;
+    }
+
+    li~li{
+        margin-left: 2px;
+    }
+
+    .previous{
+        margin-right: 2rem;
+        color: #1d1d1d;
+
+        &:hover{
+            border: none;
+        }
+
+        &.disabled{
+            display: none;
+        }
+    }
+
+    .next{
+        margin-left: 2rem;
+        color: #1d1d1d;
+
+        &:hover{
+            border: none;
+        }
+
+        &.disabled{
+            display: none;
+        }
+    }
+
+    li{
+        width: 40px;
+        height: 40px;
+        border: 1px ;
+        border-radius: 50%;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover{
+            border-style: solid;
+        }
+
+        &.selected{
+            border-style: solid;
+        }
+
+        a{
+            display: inline-block;
+            width: 100%;
+        }
+    }
+
+    
+}

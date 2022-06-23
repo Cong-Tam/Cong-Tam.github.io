@@ -1,0 +1,50 @@
+.banner {
+    margin: 20px 0;
+    padding-top: 100%;
+    position: relative;
+
+    &:hover {
+        img {
+            transform: translateX(4px);
+        }
+    }
+
+    &__img {
+        position: absolute;
+        height: 96%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+
+        img {
+            display: block;
+            height: 100%;
+            transform: translateX(0);
+            transition: transform .3s ease-in;
+        }
+    }
+
+
+
+    &__content {
+        position: absolute;
+        right: 60px;
+        bottom: 60px;
+        text-align: right;
+
+        &__title {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.8rem;
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+
+        }
+    }
+}

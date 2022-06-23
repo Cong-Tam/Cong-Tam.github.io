@@ -1,0 +1,188 @@
+.product {
+    @include flex(flex-start, flex-start);
+    max-width: 1160px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 40px;
+
+    @include tablet {
+        flex-direction: column;
+        gap: 90px;
+    }
+
+    &__images {
+        flex-grow: 1;
+        @include flex(flex-start, flex-start);
+        padding: 0 30px;
+        margin: 0 auto;
+
+        @include mobile {
+            flex-direction: column-reverse;
+            padding: 0;
+        }
+
+        &__list {
+            width: 30%;
+
+            @include mobile {
+                width: 100%;
+                @include flex(center, center);
+                margin-top: 16px;
+            }
+
+            &__item~&__item {
+                margin-top: 16px;
+
+                @include mobile {
+                    margin-top: 0;
+                }
+            }
+
+            &__item {
+                cursor: pointer;
+                width: 100%;
+                padding: 0 8px;
+
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__main {
+            flex-grow: 1;
+            width: 100%;
+            padding: 0 8px;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__info {
+        width: 50%;
+        padding: 0 30px;
+
+        @include tablet {
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+
+        &__name {
+            font-size: 4rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
+            color: #54291A;
+
+            @include tablet {
+                font-size: 2.8rem;
+            }
+        }
+
+        &__description {
+            font-size: 1.5rem;
+            color: #8b8b8b;
+            font-weight: bolder;
+            font-family: "Open Sans", sans-serif;
+            margin-left: 18px;
+            margin-top: 28px;
+
+            li~li {
+                margin-top: 10px;
+            }
+        }
+
+        &__quantity {
+            width: 40px;
+            text-align: center;
+        }
+
+        &__btns {
+            @include flex(center, flex-start);
+            gap: 2rem;
+            font-family: 'EB Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            text-transform: capitalize;
+            margin-top: 40px;
+
+            @include mobile {
+                flex-direction: column;
+            }
+
+            &__item {
+                @include flex(center, center);
+                width: 50%;
+                height: 50px;
+
+                @include mobile {
+                    width: 100%;
+                }
+            }
+
+            &__quantity {
+                border: 1px solid #ddd;
+                justify-content: space-around;
+
+                &__item {
+                    padding: 10px 14px;
+                    margin: 0 4px;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}
+
+.related-product {
+    max-width: 1130px;
+    margin: 100px auto 0;
+    text-align: center;
+
+    &__title {
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: Tahoma, Geneva, Verdana, sans-serif;
+        color: #54291A;
+        margin-bottom: 42px;
+    }
+}
+
+.message-addToCart{
+    @include flex(center, space-between);
+    max-width: 1100px;
+    padding: 20px 40px;
+    border:  1px solid #ddd;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    color: #8b8b8b;
+    margin-bottom: 40px;
+    display: none;
+    
+    @include mobile{
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &__btn{
+            margin-top: 20px;
+        }
+    }
+
+    &.active{
+        display: flex;
+    }
+
+    &__btn{
+        padding: 8px 52px;
+    }
+}

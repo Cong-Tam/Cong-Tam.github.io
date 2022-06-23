@@ -1,0 +1,22 @@
+.slick-slider {
+    width: 100%;
+    overflow: hidden;
+
+    .hero-slider__item {
+        width: max-content;
+        outline: none;
+
+        @include tablet {
+            width: 100%;
+        }
+
+        img {
+            margin: 0 auto;
+
+            @include tablet {
+                width: 100%;
+                padding: 2px;
+            }
+        }
+    }
+}

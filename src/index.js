@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
+import './assets/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.min.css'
+import Layout from './components/Layout';
+import './sass/index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Layout />
+    </Provider>
   </React.StrictMode>
 );
 
